@@ -71,9 +71,11 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('customer.loginform') }}">customer login</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('customer.registerform') }}">customer register</a>
                         @endif
                     @endauth
                 </div>

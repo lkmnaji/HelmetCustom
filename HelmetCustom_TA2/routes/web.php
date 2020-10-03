@@ -19,4 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
+Route::get('/customer/home', 'Auth\CustomerLoginController@index')->middleware('auth:customer');
+Route::get('/customer/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.loginform');
+Route::get('/customer/register', 'Auth\CustomerLoginController@showRegisterForm')->name('customer.registerform');
+Route::post('/customer/login', 'Auth\CustomerLoginController@Login')->name('customer.login');
+Route::post('/customer/register', 'Auth\CustomerLoginController@register')->name('customer.register');
+Route::get('/customer/logout', 'Auth\CustomerLoginController@logout')->name('customer.logout');
+
+
+Route::resource('status', 'HelmetCustom\StatusProdukController');
+Route::resource('order', 'HelmetCustom\OrderController');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
