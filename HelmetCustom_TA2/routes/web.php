@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('HelmetCustom')->group(function(){
+    Route::resource('warna','HelmetCustom\Admin\WarnaController');
+    Route::resource('metodetransaksi','HelmetCustom\Admin\MetodeTransaksiController');
+    Route::resource('gallery','HelmetCustom\Admin\GalleryController');
+    Route::resource('produk','HelmetCustom\Admin\ProdukController');
+});
