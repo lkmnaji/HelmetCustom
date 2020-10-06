@@ -21,4 +21,9 @@ class Customer extends Authenticatable
     public function setPasswordAttribute($val){
         return $this->attributes['password'] = bcrypt($val);
     }
+
+    public function CustomerOrder(){
+        return $this->hasMany(Order::class, 'email_customer_id', 'id');
+    }
+    
 }

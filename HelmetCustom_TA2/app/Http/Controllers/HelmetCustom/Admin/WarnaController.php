@@ -17,7 +17,7 @@ class WarnaController extends Controller
     public function index()
     {
         $warna_produk = Warna::all();
-        return view('HelmetCustom.Admin.content.Warna.IndexWarna',compact('warna_produk'));
+        return view('HelmetCustom.content.Admin.Warna.IndexWarna',compact('warna_produk'));
     }
 
     /**
@@ -27,7 +27,7 @@ class WarnaController extends Controller
      */
     public function create()
     {
-        return view('HelmetCustom.Admin.content.Warna.CreateWarna');
+        return view('HelmetCustom.content.Admin.Warna.CreateWarna');
     }
 
     /**
@@ -71,7 +71,7 @@ class WarnaController extends Controller
      */
     public function edit(Warna $warna)
     {
-        return view ('HelmetCustom.Admin.content.Warna.EditWarna',compact('warna'));
+        return view ('HelmetCustom.content.Admin.Warna.EditWarna',compact('warna'));
     }
 
     /**

@@ -8,13 +8,13 @@ class Produk extends Model
 {
     protected $guarded = [];
 
-    public function produk_foto(){
-        return $this->belongsTo(Gallery::class, 'foto_produk_id','id');
+    public function ProdukWarna(){
+        return $this->belongsTo(Warna::class,'warna_produk_id','id');
     }
-    public function produk_warna(){
-        return $this->belongsToMany(Warna::class,'pilihan_warnas','produk_id','warna_id');
+    public function ProdukStatus(){
+        return $this->belongsTo(StatusProduk::class, 'status_produk_id','id');
     }
-    public function produk_status(){
-        return $this->belongsTo(Status::class, 'status_id','id');
+    public function ProdukOrder(){
+        return $this->hasMany(Order::class, 'produk_id','id');
     }
 }

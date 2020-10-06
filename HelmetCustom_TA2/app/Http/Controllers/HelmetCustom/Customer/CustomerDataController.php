@@ -4,6 +4,9 @@ namespace App\Http\Controllers\HelmetCustom\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
+use App\Customer;
+use App\CustomerData;
 
 class CustomerDataController extends Controller
 {
@@ -14,7 +17,8 @@ class CustomerDataController extends Controller
      */
     public function index()
     {
-        //
+        $customer_data = CustomerData::where(Auth::user()->email)->get();
+        return view('HelmetCustom.content.Customer.IndexCustomer',compact('customer_data'));
     }
 
     /**
@@ -24,7 +28,7 @@ class CustomerDataController extends Controller
      */
     public function create()
     {
-        //
+        return view('HelmetCustom.content.Customer.CreateCustomer');
     }
 
     /**
@@ -35,7 +39,9 @@ class CustomerDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            'nama_customer' => ''
+        ])
     }
 
     /**

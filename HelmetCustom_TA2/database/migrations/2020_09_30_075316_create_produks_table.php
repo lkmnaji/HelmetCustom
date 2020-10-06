@@ -19,8 +19,9 @@ class CreateProduksTable extends Migration
             $table->bigInteger('harga_produk');
             $table->Integer('stok_produk');
             $table->text('deskripsi_produk');
+            $table->unsignedInteger('warna_produk_id');
             $table->unsignedInteger('status_produk_id');
-            $table->unsignedInteger('gallery_produk_id');
+            $table->string('foto_produk');
             $table->softDeletes();
             $table->timestamps();
         });

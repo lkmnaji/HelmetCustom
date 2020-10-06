@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class StatusProduk extends Model
 {
-    protected $table = 'status_produks';    
     protected $guarded = [];
+
+    public function StatusProduk(){
+        return $this->hasMany(Produk::class, 'status_produk_id','id');
+    }
 }

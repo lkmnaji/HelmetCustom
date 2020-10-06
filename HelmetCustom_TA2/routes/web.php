@@ -17,8 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('tesadmin', function () {
+    return view('HelmetCustom.MasterAdmin');
+});
+Route::get('tesdashboardadmin', function () {
+    return view('HelmetCustom.content.Admin.DashboardAdmin');
+});
 
+Route::get('tescustomer', function () {
+    return view('HelmetCustom.content.Customer.customer');
+});
+
+Auth::routes();
 
 
 Route::get('/customer/home', 'Auth\CustomerLoginController@index')->middleware('auth:customer');
@@ -29,17 +39,16 @@ Route::post('/customer/register', 'Auth\CustomerLoginController@register')->name
 Route::get('/customer/logout', 'Auth\CustomerLoginController@logout')->name('customer.logout');
 
 
-Route::resource('status', 'HelmetCustom\StatusProdukController');
-Route::resource('order', 'HelmetCustom\OrderController');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-Route::prefix('HelmetCustom')->group(function(){
+Route::prefix('AdminHelmetCustom')->group(function(){
     Route::resource('warna','HelmetCustom\Admin\WarnaController');
     Route::resource('metodetransaksi','HelmetCustom\Admin\MetodeTransaksiController');
-    Route::resource('gallery','HelmetCustom\Admin\GalleryController');
     Route::resource('produk','HelmetCustom\Admin\ProdukController');
+    Route::resource('status', 'HelmetCustom\Admin\StatusProdukController');
+    Route::resource('order', 'HelmetCustom\Customer\OrderController');
 });
-=======
->>>>>>> 93a18fa4191e070f3078015406174b6ee93f744d
+
+Route::prefix('CustomerHelmetCustom')->group(function(){
+    Route::resource('CustomerData','HelmetCustom\Customer\CustomerDataController');
+});

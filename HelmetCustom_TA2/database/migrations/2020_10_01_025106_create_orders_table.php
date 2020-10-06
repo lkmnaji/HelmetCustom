@@ -15,11 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('customer_id');
-            $table->integer('produk_id');
+            $table->unsignedInteger('email_customer_id');
+            $table->unsignedInteger('produk_id');
             $table->integer('total_produk');
             $table->date('tanggal_pesan');
-            $table->integer('jasa_pengiriman_id');
+            $table->unsignedInteger('jasa_pengiriman_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

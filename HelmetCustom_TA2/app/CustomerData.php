@@ -8,16 +8,13 @@ class CustomerData extends Model
 {
     protected $guarded = [];
 
-    public function CustomerData_email(){
-        return $this->belongsTo(AkunCustomer::class,'email_customer_id','id');
-    }
-    public function CustomerData_province(){
+    public function CustomerDataProvince(){
         return $this->belongsTo(Province::class,'province_id','id');
     }
-    public function CustomerData_city(){
+    public function CustomerDataCity(){
         return $this->belongsTo(City::class,'city_id','id');
     }
-    public function CustomerData_KodePos(){
+    public function CustomerDataKodePos(){
         return $this->belongsTo(KodePos::class,'kode_pos_id','id');
     }
 

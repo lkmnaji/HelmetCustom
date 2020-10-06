@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
 </head>
 <body>
     <div id="app">
@@ -57,8 +57,8 @@
                                 </a>
                                 
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <div  aria-labelledby="navbarDropdown">
+                                    <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

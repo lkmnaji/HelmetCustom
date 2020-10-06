@@ -4,9 +4,11 @@ namespace App\Http\Controllers\HelmetCustom\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Gallery;
+use Illuminate\Support\Facades\Storage;
 use App\Warna;
 use App\Produk;
+use App\StatusProduk;
+use Session;
 
 class ProdukController extends Controller
 {
@@ -18,7 +20,7 @@ class ProdukController extends Controller
     public function index()
     {
         $data_produk = Produk::all();
-        return view('HelmetCustom.Admin.content.Produk.IndexProduk',compact('data_produk')); 
+        return view('HelmetCustom.content.Admin.Produk.IndexProduk',compact('data_produk')); 
     }
 
     /**
@@ -28,7 +30,10 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        $data_status = StatusProduk::all();
+        $data_warna = Warna::all();
+        return view('HelmetCustom.content.Admin.Produk.CreateProduk',compact('data_status','data_warna'));
+
     }
 
     /**
@@ -39,7 +44,35 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_produk' => 'required|min:5',
+            'harga_produk' => 'required',
+            'stok_produk' => 'required',
+            'deskripsi_produk' => 'required',
+            'warna_produk_id' => 'required',
+            'status_produk_id' => 'required',
+            'foto_produk' => 'required|image|mimes:png,jpg,jpeg'
+        ]);
+
+        $image = $request->file('foto_produk');
+        $image->storeAs('public/gallerys',$image->hashName());
+
+        $produk = Produk::create([
+            'nama_produk' => $request->nama_produk,
+            'harga_produk' => $request->harga_produk,
+            'stok_produk' => $request->stok_produk,
+            'deskripsi_produk' => $request->deskripsi_produk,
+            'warna_produk_id' => $request->warna_produk_id,
+            'status_produk_id' => $request->status_produk_id,
+            'foto_produk' => $image->hashName(),
+        ]);
+
+
+        if ($produk) {
+            Session::flash('sukses',"Data berhasil di Input");
+            return redirect()->route('produk.index');
+        }
+
     }
 
     /**
@@ -59,9 +92,12 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Produk $produk)
     {
-        //
+        $produk->find($produk->id)->all();
+        $data_warna = Warna::all();
+        $data_status = StatusProduk::all();
+        return view('HelmetCustom.content.Admin.Produk.EditProduk',compact('produk','data_status','data_warna'));
     }
 
     /**
@@ -71,9 +107,48 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produk $produk)
     {
-        //
+        $this->validate($request, [
+            'nama_produk' => 'required|min:5',
+            'harga_produk' => 'required',
+            'stok_produk' => 'required',
+            'deskripsi_produk' => 'required',
+            'warna_produk_id' => 'required',
+            'status_produk_id' => 'required',
+        ]);
+
+        $produk = Produk::findOrFail($produk->id);
+
+        if($request->file('foto_produk') == ""){
+            $produk->update([
+                'nama_produk' => $request->nama_produk,
+                'harga_produk' => $request->harga_produk,
+                'stok_produk' => $request->stok_produk,
+                'deskripsi_produk' => $request->deskripsi_produk,
+                'warna_produk_id' => $request->warna_produk_id,
+                'status_produk_id' => $request->status_produk_id,
+            ]);
+        }else{
+            Storage::disk('local')->delete('public/gallerys/'.$produk->foto_produk);
+
+            $image = $request->file('foto_produk');
+            $image->storeAs('public/gallerys',$image->hashName());
+
+            $produk->update([
+                'nama_produk' => $request->nama_produk,
+                'harga_produk' => $request->harga_produk,
+                'stok_produk' => $request->stok_produk,
+                'deskripsi_produk' => $request->deskripsi_produk,
+                'warna_produk_id' => $request->warna_produk_id,
+                'status_produk_id' => $request->status_produk_id,
+                'foto_produk' => $image->hashName()
+            ]);
+        }
+        if($produk){
+            Session::flash('sukses',"Data berhasil di Edit");
+            return redirect()->route('produk.index');
+        }
     }
 
     /**
@@ -82,8 +157,13 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Produk $produk)
     {
-        //
+        $produk->delete();
+
+        if($produk){
+            Session::flash('sukses',"Data berhasil di hapus");
+            return redirect()->route('produk.index');
+        }
     }
 }

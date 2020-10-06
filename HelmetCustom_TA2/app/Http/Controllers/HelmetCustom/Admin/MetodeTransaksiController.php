@@ -17,7 +17,7 @@ class MetodeTransaksiController extends Controller
     public function index()
     {
         $method_transaksi = MetodeTransaksi::all();
-        return view('HelmetCustom.Admin.content.MetodeTransaksi.IndexMetodeTransaksi',compact('method_transaksi'));
+        return view('HelmetCustom.content.Admin.MetodeTransaksi.IndexMetodeTransaksi',compact('method_transaksi'));
     }
 
     /**
@@ -27,7 +27,7 @@ class MetodeTransaksiController extends Controller
      */
     public function create()
     {
-        return view('HelmetCustom.Admin.content.MetodeTransaksi.CreateMetodeTransaksi');
+        return view('HelmetCustom.content.Admin.MetodeTransaksi.CreateMetodeTransaksi');
     }
 
     /**
@@ -73,7 +73,7 @@ class MetodeTransaksiController extends Controller
     {
 
         $metodetransaksi->find($metodetransaksi->id)->all();
-        return view ('HelmetCustom.Admin.content.MetodeTransaksi.EditMetodeTransaksi',compact('metodetransaksi'));
+        return view ('HelmetCustom.content.Admin.MetodeTransaksi.EditMetodeTransaksi',compact('metodetransaksi'));
     }
 
     /**
