@@ -4,6 +4,8 @@ namespace App\Http\Controllers\HelmetCustom\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Province;
+use App\City;
 use App\Invoice;
 use App\KodePos;
 
@@ -28,7 +30,9 @@ class InvoiceController extends Controller
     public function create()
     {
         $kodepos = KodePos::all();
-        return view('content.invoice.create', compact('kodepos',));
+        $province = Province::all();
+        $city = City::all();
+        return view('content.invoice.create', compact('kodepos', 'province', 'city'));
     }
 
     /**

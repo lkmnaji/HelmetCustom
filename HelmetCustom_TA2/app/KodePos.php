@@ -9,6 +9,6 @@ class KodePos extends Model
     protected $guarded = [];
 
     public function kodepos(){
-        return $this->hasMany(Invoice::class, 'kode_pos_id', 'id');
+        return $this->hasMany(Invoice::class, 'kode_pos', 'id');
     }
 }

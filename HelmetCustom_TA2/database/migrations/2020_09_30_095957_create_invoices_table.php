@@ -23,9 +23,9 @@ class CreateInvoicesTable extends Migration
             $table->string('total_harga');
             $table->timestamps();
 
-            // $table->foreign('province_id')->references('id')->on('province')->onDelete('cascade')->onUpdate('cascade');
-            // $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('kode_pos_id')->references('id')->on('kodepos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('province_id')->references('id')->on('province')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('kode_pos')->references('id')->on('kodepos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -8,7 +8,7 @@ class Province extends Model
 {
     protected $guarded = [];
 
-    // public function invoice(){
-    //     return $this->hasMany('invoice::class', 'province_id', 'id');
-    // }
+    public function invoice(){
+        return $this->hasMany('invoice::class', 'province_id', 'id');
+    }
 }

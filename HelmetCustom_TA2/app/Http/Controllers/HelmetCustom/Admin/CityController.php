@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\HelmetCustom\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\City;
 
-class province extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class province extends Controller
      */
     public function index()
     {
-        //
+        $city = City::all();
+        return view('content.city.index',compact('city'));
     }
 
     /**
@@ -23,7 +26,7 @@ class province extends Controller
      */
     public function create()
     {
-        //
+        return view('content.city.create');
     }
 
     /**
@@ -34,7 +37,15 @@ class province extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'city_id' => 'required'
+        ]);
+        
+        $city = new City;
+        $city->city_id = $validate['city_id'];
+        $city->save();
+        
+        return redirect()->route('city.index');
     }
 
     /**
@@ -77,8 +88,10 @@ class province extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(city $City)
     {
-        //
+        $City->delete();
+
+        return redirect()->route('city.index');
     }
 }

@@ -15,14 +15,26 @@
         </div>
         <div class="form-group">
             <label for="province_id">Province</label>
-            <input type="text" class="form-control-file" id="province_id" name="province_id">
+            <select name="province_id" id="province_id">
+                @foreach ($province as $div)
+                <option value="{{$div->id}}" {{ old('div->id')=="div->province_id" ? 'selected': ''}}>
+                    {{$div->province_id}}
+                </option>                    
+                @endforeach
+            </select>
             @error('province_id')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="city_id">City</label>
-            <input type="text" class="form-control-file" id="city_id" name="city_id">
+            <select name="city_id" id="city_id">
+                @foreach ($city as $div)
+                <option value="{{$div->id}}" {{ old('div->id')=="div->city_id" ? 'selected': ''}}>
+                    {{$div->city_id}}
+                </option>                    
+                @endforeach
+            </select>
             @error('city_id')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

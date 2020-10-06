@@ -37,6 +37,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <a href="#"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
             </div>
         </div>
     </div>
