@@ -13,9 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+=======
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('admin/dashboard');
+});
+>>>>>>> 4bc9e7cf6b5fab491a9e729c3d83af3e5d3d1007
 
 // Route::get('tesadmin', function () {
 //     return view('HelmetCustom.MasterAdmin');
@@ -41,6 +52,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 // Route::prefix('AdminHelmetCustom')->group(function(){
 //     Route::resource('warna','HelmetCustom\Admin\WarnaController');
 //     Route::resource('metodetransaksi','HelmetCustom\Admin\MetodeTransaksiController');
@@ -52,3 +64,15 @@ use Illuminate\Support\Facades\Route;
 // Route::prefix('CustomerHelmetCustom')->group(function(){
 //     Route::resource('CustomerData','HelmetCustom\Customer\CustomerDataController');
 // });
+=======
+Route::prefix('HelmetCustom')->group(function(){
+    Route::resource('warna','HelmetCustom\Admin\WarnaController');
+    Route::resource('metodetransaksi','HelmetCustom\Admin\MetodeTransaksiController');
+    Route::resource('gallery','HelmetCustom\Admin\GalleryController');
+    Route::resource('produk','HelmetCustom\Admin\ProdukController');
+    Route::resource('kodepos','HelmetCustom\Admin\KodePosController');
+    Route::resource('invoice','HelmetCustom\Admin\InvoiceController');
+    Route::resource('province', 'HelmetCustom\Admin\ProvinceController');
+    Route::resource('city', 'HelmetCustom\Admin\CityController');
+});
+>>>>>>> 4bc9e7cf6b5fab491a9e729c3d83af3e5d3d1007
