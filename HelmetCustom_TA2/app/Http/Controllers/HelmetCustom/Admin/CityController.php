@@ -16,7 +16,7 @@ class CityController extends Controller
     public function index()
     {
         $city = City::all();
-        return view('content.city.index',compact('city'));
+        return view('HelmetCustom.content.city.index',compact('city'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('content.city.create');
+        return view('HelmetCustom.content.city.create');
     }
 
     /**

@@ -9,6 +9,6 @@ class Warna extends Model
     protected $guarded = []; 
 
     public function warna_produk(){
-        return $this->belongsToMany(Produk::class,'warna_produk_id','id');
+        return $this->belongsTo(Produk::class,'warna_produk_id','id');
     }
 }

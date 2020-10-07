@@ -16,7 +16,7 @@ class KodePosController extends Controller
     public function index()
     {
         $kodepos = KodePos::all();
-        return view('content.kodepos.index',compact('kodepos'));
+        return view('HelmeCustom.content.Admin.Kodepos.IndexKodePos',compact('kodepos'));
     }
 
     /**
@@ -26,7 +26,7 @@ class KodePosController extends Controller
      */
     public function create()
     {
-        return view('content.kodepos.create');
+        return view('HelmeCustom.content.Admin.Kodepos.IndexKodePos');
     }
 
     /**

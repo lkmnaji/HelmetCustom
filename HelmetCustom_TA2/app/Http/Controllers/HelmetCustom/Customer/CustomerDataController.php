@@ -41,7 +41,7 @@ class CustomerDataController extends Controller
     {
         $validasi = $request->validate([
             'nama_customer' => ''
-        ])
+        ]);
     }
 
     /**

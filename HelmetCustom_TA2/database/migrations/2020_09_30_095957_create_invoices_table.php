@@ -15,17 +15,14 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('email_customer');
+            $table->unsignedInteger('email_customer_id');
+            $table->unsignedInteger('order_id');
             $table->unsignedInteger('province_id');
             $table->unsignedInteger('city_id');
-            $table->unsignedInteger('kode_pos');
-            $table->unsignedInteger('order_id');
+            $table->unsignedInteger('kode_pos_id');
             $table->string('total_harga');
             $table->timestamps();
 
-            $table->foreign('province_id')->references('id')->on('province')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('kode_pos')->references('id')->on('kodepos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

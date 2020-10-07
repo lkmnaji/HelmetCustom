@@ -8,7 +8,11 @@ class City extends Model
 {
     protected $guarded = [];
 
-    public function invoice(){
-        return $this->hasMany('invoice::class', 'city_id', 'id');
+    public function CityInvoice(){
+        return $this->hasMany('Invoice::class', 'city_id', 'id');
     }
+    public function CityCustomer(){
+        return $this->hasMany('CustomerData::class', 'city_id', 'id');
+    }
+
 }

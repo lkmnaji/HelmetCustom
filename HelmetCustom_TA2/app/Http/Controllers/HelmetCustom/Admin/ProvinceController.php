@@ -16,7 +16,7 @@ class ProvinceController extends Controller
     public function index()
     {
         $province = Province::all();
-        return view('content.province.index',compact('province'));
+        return view('HelmetCustom.content.province.index',compact('province'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ProvinceController extends Controller
      */
     public function create()
     {
-        return view('content.province.create');
+        return view('HelmetCustom.content.province.create');
     }
 
     /**

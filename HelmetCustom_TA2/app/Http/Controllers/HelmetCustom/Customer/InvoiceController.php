@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\HelmetCustom\Admin;
+namespace App\Http\Controllers\HelmetCustom\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoice = Invoice::all();
-        return view('content.invoice.index',compact('invoice'));
+        return view('HelmetCustom.content.Customer.invoice.index',compact('invoice'));
     }
 
     /**
@@ -32,7 +32,7 @@ class InvoiceController extends Controller
         $kodepos = KodePos::all();
         $province = Province::all();
         $city = City::all();
-        return view('content.invoice.create', compact('kodepos', 'province', 'city'));
+        return view('HelmetCustom.content.Customer.invoice.create', compact('kodepos', 'province', 'city'));
     }
 
     /**

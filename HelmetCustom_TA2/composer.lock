@@ -738,8 +738,6 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "kavist/rajaongkir",
@@ -800,7 +798,6 @@
                 "rajaongkir"
             ],
             "time": "2019-10-11T01:21:56+00:00"
->>>>>>> 4bc9e7cf6b5fab491a9e729c3d83af3e5d3d1007
         },
         {
             "name": "laravel/framework",

@@ -15,7 +15,6 @@ class CreateKodePosTable extends Migration
     {
         Schema::create('kode_pos', function (Blueprint $table) {
             $table->id();
-            $table->string('id_kode_pos');
             $table->string('kode_pos');
             $table->timestamps();
         });
