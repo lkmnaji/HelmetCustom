@@ -17,9 +17,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::prefix('/')->group(function(){
+    Route::get('admin', function () {return view('welcomeadmin');})->name('welcome');
+    Route::get('customer', function () {return view('welcomecustomer');})->name('welcome');
+});
 
 Route::get('/customer/home', 'Auth\CustomerLoginController@index')->middleware('auth:customer');
 Route::get('/customer/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.loginform');
@@ -44,5 +45,7 @@ Route::prefix('AdminHelmetCustom')->group(function(){
 
 Route::prefix('CustomerHelmetCustom')->group(function(){
     Route::get('/HomePageCustomer',function(){return view('HelmetCustom.content.Customer.HomePageCustomer');})->name('index.customer');
-    Route::resource('CustomerData','HelmetCustom\Customer\CustomerDataController');
+    Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
+    Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
+    Route::resource('order', 'HelmetCustom\Customer\OrderController');
 });

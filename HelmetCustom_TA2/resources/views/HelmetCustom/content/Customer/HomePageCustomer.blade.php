@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div data-aos="fade-up">
-                <a href="#"><img src={{ asset('assets/img/kuning.jpg') }} class="d-block w-100"
+                <a href="{{route('order.index')}}"><img src={{ asset('assets/img/kuning.jpg') }} class="d-block w-100"
                         alt="..."></a>
                     <br>
                     <br>

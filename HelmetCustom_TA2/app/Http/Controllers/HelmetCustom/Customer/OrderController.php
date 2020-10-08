@@ -18,7 +18,7 @@ class OrderController extends Controller
     public function index()
     {
         $data = Order::all();
-        return view('content.order.order-index',compact('data'));
+        return view('HelmetCustom.content.Customer.Order.IndexOrder',compact('data'));
     }
 
     /**

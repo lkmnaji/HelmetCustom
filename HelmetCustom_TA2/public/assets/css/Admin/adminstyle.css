@@ -36,3 +36,7 @@
     color: black;
     font-size: 15px;
 }
+#welcomeadmin{
+    background-image: url(/assets/img/bgHelmet.jpg);
+    background-size: cover;
+}
