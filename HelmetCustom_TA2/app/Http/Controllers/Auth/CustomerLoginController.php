@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers1;
 use Auth;
 
 class CustomerLoginController extends Controller
 {
-    use AuthenticatesUsers;
+    use AuthenticatesUsers1;
     
     protected $redirectTo = '/CustomerHelmetCustom/HomePageCustomer';   
 
@@ -49,5 +49,9 @@ class CustomerLoginController extends Controller
         ]);
         \App\Customer::create($request->all());
         return redirect()->route('customer.registerform')->with('success','Successfully register!');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect('/customer'); // ini untuk redirect setelah logout
     }
 }
