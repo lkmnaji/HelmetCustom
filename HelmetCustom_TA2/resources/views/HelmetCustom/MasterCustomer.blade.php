@@ -18,19 +18,19 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('/assets/css/Customer/customerstyle.css')}}">
-
     <title>@yield('title')</title>
 </head>
 
 
 
 <body>
-    @include('layouts.Customer.header')
+    @include('HelmetCustom.layouts.Customer.header')
+
+    @yield('auth')
 
     @yield('HelmetCustom.content.Customer')
 
-    @include('layouts.Customer.header')
+    @include('HelmetCustom.layouts.Customer.footer')
 
 
 
@@ -48,7 +48,7 @@
     <script>
         AOS.init({
             duration: 2000,
-        });
+        }); 
     </script>
 
 </body>

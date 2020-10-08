@@ -11,7 +11,7 @@ class CustomerLoginController extends Controller
 {
     use AuthenticatesUsers;
     
-    protected $redirectTo = '/customer/home';   
+    protected $redirectTo = '/CustomerHelmetCustom/HomePageCustomer';   
 
     public function __construct(){
         $this->middleware('guest:customer')->except('logout')->except('index');

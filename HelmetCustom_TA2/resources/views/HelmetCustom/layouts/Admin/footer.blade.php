@@ -1,7 +1,6 @@
 <footer class="main-footer fixed-bottom">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong>Copyright &copy; 2020 Helmet Custom.</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.5
+      <b>Gantengkan Dirimu</b> Mulai dari Helm
     </div>
 </footer>

@@ -3,7 +3,7 @@
 
 {{-- @section('admin','active') --}}
 
-@section('HelmetCustom.content')  
+@section('HelmetCustom.content.Admin')  
   
   <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -29,70 +29,37 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        <div class="row rwadmin1">
+          <div class="card bg-dark text-white">
+            <img src="{{asset('assets/img/bgadmin1.jpeg')}}" alt="background foto" id="bgadmin1">
+            <div class="card-img-overlay">
+              <h1 class="card-title text-center" id="h1bgadmin1">Selamat Datang <br>(Nama Admin)</h1>
             </div>
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <div class="row rwadmin2">
+          <div class="card-deck">
+            <div class="card">
+              <img src="{{asset('assets/img/helm1 (1).jpg')}}" class="card-img-top" alt="...">
+              <div class="card-img-overlay">
+                <h1 class="card-title " id="h1cardadmin">Selamat</h1>
+              </div>
+            </div>
+            <div class="card">
+              <img src="{{asset('assets/img/helm1 (2).jpg')}}" class="card-img-top" alt="...">
+              <div class="card-img-overlay">
+                <h1 class="card-title " id="h1cardadmin">Bekerja</h1>
+              </div>
+            </div>
+            <div class="card">
+              <img src="{{asset('assets/img/helm1 (3).jpg')}}" class="card-img-top" alt="...">
+              <div class="card-img-overlay">
+                <h1 class="card-title" id="h1cardadmin">Dengan Baik</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- /.content -->
 </div>

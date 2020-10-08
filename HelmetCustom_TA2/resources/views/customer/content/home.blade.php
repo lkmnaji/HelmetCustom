@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.cslogin')
 
 @section('content')
     <div class="container">
@@ -14,8 +14,13 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
-                        You are Logged in! Welcome {{ auth()->user()->username }}
+                        Selamat Datang Customer {{ auth()->user()->username }}
+                        <br>
+                        <br>
+                        <a class="btn btn-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
                     </div>
                 </div>
             </div>

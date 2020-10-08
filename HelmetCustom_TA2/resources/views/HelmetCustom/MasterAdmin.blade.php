@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="{{asset('/assets/css/Admin/adminstyle.css')}}">
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
     <script src="{{asset('https://kit.fontawesome.com/yourcode.js')}}"></script>
