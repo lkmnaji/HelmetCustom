@@ -35,6 +35,11 @@ Route::prefix('AdminHelmetCustom')->group(function(){
     Route::resource('produk','HelmetCustom\Admin\ProdukController');
     Route::resource('status', 'HelmetCustom\Admin\StatusProdukController');
     Route::resource('order', 'HelmetCustom\Customer\OrderController');
+    Route::resource('kodepos', 'HelmetCustom\Admin\KodePosController');
+    Route::resource('province', 'HelmetCustom\Admin\ProvinceController');
+    Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
+    Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
+    Route::resource('Order', 'HelmetCustom\Customer\OrderController');
 });
 
 Route::prefix('CustomerHelmetCustom')->group(function(){

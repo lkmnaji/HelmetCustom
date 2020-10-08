@@ -15,6 +15,8 @@
     </style>
 <div class="content-wrapper">    
     <div class="container mt-3">
+        <br>
+    <a href="{{url('/AdminHelmetCustom/DashboardAdmin')}}"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
         <div class="row">
             <div class="col-12">
                 <div class="py-4">
@@ -31,6 +33,7 @@
                             <p>{{ Session::get('sukses') }}</p>
                         </div>
                 @endif
+                <br>
                 <table class="table table-striped" id="table_id">
                     <thead class="thead-dark">
                         <tr>
@@ -75,7 +78,7 @@
                         @endforelse
                         </tbody>
                   </table><br><br>
-                  <a href="#"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
+                  
             </div>
         </div>
     </div>

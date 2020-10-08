@@ -51,7 +51,7 @@
                         @endforelse
                     </tbody>
                 </table><br><br>
-                <a href="#"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
+                <a href="{{url('/AdminHelmetCustom/DashboardAdmin')}}"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
             </div>
         </div>
     </div>

@@ -17,8 +17,8 @@ class CustomerDataController extends Controller
      */
     public function index()
     {
-        $customer_data = CustomerData::where(Auth::user()->email)->get();
-        return view('HelmetCustom.content.Customer.IndexCustomer',compact('customer_data'));
+        // $customer_data = CustomerData::where(Auth::user()->email)->get();
+        return view('HelmetCustom.content.Customer.CustomerData.IndexCustomerData');
     }
 
     /**

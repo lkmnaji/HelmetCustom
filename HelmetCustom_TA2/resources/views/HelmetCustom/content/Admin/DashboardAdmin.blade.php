@@ -14,12 +14,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
+         
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -33,11 +28,11 @@
           <div class="card bg-dark text-white">
             <img src="{{asset('assets/img/bgadmin1.jpeg')}}" alt="background foto" id="bgadmin1">
             <div class="card-img-overlay">
-              <h1 class="card-title text-center" id="h1bgadmin1">Selamat Datang <br>(Nama Admin)</h1>
+              <h1 class="card-title text-center" id="h1bgadmin1">Selamat Datang <br>{{ Auth::user()->name }}</h1>
             </div>
           </div>
         </div>
-        <div class="row rwadmin2">
+        {{-- <div class="row rwadmin2">
           <div class="card-deck">
             <div class="card">
               <img src="{{asset('assets/img/helm1 (1).jpg')}}" class="card-img-top" alt="...">
@@ -57,7 +52,7 @@
                 <h1 class="card-title" id="h1cardadmin">Dengan Baik</h1>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>
