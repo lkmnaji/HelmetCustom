@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers1;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 
 class CustomerLoginController extends Controller
 {
-    use AuthenticatesUsers1;
+    use AuthenticatesUsers;
     
-    protected $redirectTo = '/CustomerHelmetCustom/HomePageCustomer';   
+    protected $redirectTo = '/helmetcustom/homehelmet';   
 
     public function __construct(){
         $this->middleware('guest:customer')->except('logout')->except('index');

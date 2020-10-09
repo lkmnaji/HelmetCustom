@@ -1,7 +1,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('assets/img/helm.png') }}" alt=""
+    <a class="navbar-brand" href="{{url('/CustomerHelmetCustom/HomePageCustomer')}}"><img src="{{ asset('assets/img/helm.png') }}" alt=""
                 style="width: 50px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: black;">Home</a>
+                <a class="nav-link" href="{{url('/CustomerHelmetCustom/HomePageCustomer')}}" style="color: black;">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#ft" style="color: black;">About Us</a>

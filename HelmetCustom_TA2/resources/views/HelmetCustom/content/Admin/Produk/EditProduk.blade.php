@@ -3,7 +3,7 @@
 
 {{-- @section('admin','active') --}}
 
-@section('HelmetCustom.content')
+@section('HelmetCustom.content.Admin')
 <body>   
     <style>
         h2{

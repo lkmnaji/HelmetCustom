@@ -43,8 +43,9 @@ Route::prefix('AdminHelmetCustom')->group(function(){
     Route::resource('Order', 'HelmetCustom\Customer\OrderController');
 });
 
-Route::prefix('CustomerHelmetCustom')->group(function(){
-    Route::get('/HomePageCustomer',function(){return view('HelmetCustom.content.Customer.HomePageCustomer');})->name('index.customer');
+Route::prefix('helmetcustom')->group(function(){
+    // Route::get('/HomePageCustomer',function(){return view('HelmetCustom.content.Customer.HomePageCustomer');})->name('index.customer');
+    Route::get('/homehelmet','HelmetCustom\Customer\homefrontendController@homeFrontend')->name('homefrontend');
     Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
     Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
     Route::resource('order', 'HelmetCustom\Customer\OrderController');

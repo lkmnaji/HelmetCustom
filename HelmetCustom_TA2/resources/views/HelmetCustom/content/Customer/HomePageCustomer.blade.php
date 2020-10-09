@@ -42,56 +42,22 @@
         <hr id="hr">
         <br>
         <div class="row">
-            <div class="col-lg-3">
-                <div data-aos="fade-up">
-                <a href="{{route('order.index')}}"><img src={{ asset('assets/img/kuning.jpg') }} class="d-block w-100"
-                        alt="..."></a>
-                    <br>
-                    <br>
-                    <p><strong>HELM CUSTOM [M30 KUNING HITAM HELM CUSTOM]</strong></p>
-                    <p id="p"><strong>IDR 500,000</strong></p>
-                    <p id="p1"><strong><s>IDR 1.000,000</s></strong></p>
+            @foreach ($data as $item)
+                <div class="col-lg-3">
+                    <div data-aos="fade-up">
+                        <a href="{{ route('order.index') }}"><img src="{{Storage::url('public/gallerys/').$item->foto_produk}}"
+                                class="d-block w-100" alt="..."></a>
+                        <br>
+                        <br>
+                        <p><strong>{{$item->nama_produk}}</strong></p>
+                        <p id="p"><strong>{{$item->harga_produk}}</strong></p>
+                        <p id="p1"><strong><s>IDR 1.000,000</s></strong></p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div data-aos="fade-up">
-                    <a href=""><img src={{asset('assets/img/putih.jpg')}} alt=""
-                        class="d-block w-100"></a>
-                    <br>
-                    <br>
-                    <p><strong>HELM CUSTOM [M30 WHITE BLACK HELM CUSTOM]</strong></p>
-                    <p id="p"><strong>IDR 650,000</strong></p>
-                    <p id="p1"><strong><s>IDR 1.200,000</s></strong></p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div data-aos="fade-up">
-                    <a href=""><img src={{asset('assets/img/typ1.jpg')}} alt=""
-                        class="d-block w-100">
-                        <br></a>
-                    <br>
-                    <p><strong>HELM CUSTOM [MOTO 3 HELM CUSTOM RED RDS TYPE 001]</strong></p>
-                    <p id="p"><strong>IDR 800,000</strong></p>
-                    <p id="p1"><strong><s>IDR 2.000,000</s></strong></p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div data-aos="fade-up">
-                    <a href=""><img src={{asset('assets/img/typ2.png')}}
-                        class="d-block w-100"></a>
-                    <br>
-                    <br>
-                    <p><strong>HELM CUSTOM [MOTO 3 HELM CUSTOM RED RDS TYPE 002]</strong></p>
-                    <p id="p"><strong>IDR 850,000</strong></p>
-                    <p id="p1"><strong><s>IDR 2.200,000</s></strong></p>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
     <br>
     <br>
     <!-- tutup content -->
 @endsection
-
-
