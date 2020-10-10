@@ -45,12 +45,13 @@
             @foreach ($data as $item)
                 <div class="col-lg-3">
                     <div data-aos="fade-up">
-                        <a href="{{ route('order.index') }}"><img src="{{Storage::url('public/gallerys/').$item->foto_produk}}"
-                                class="d-block w-100" alt="..."></a>
+                        <a href="{{ route('order.show',$item->id) }}"><img
+                                src="{{ Storage::url('public/gallerys/') . $item->foto_produk }}" class="d-block w-100"
+                                alt="..."></a>
                         <br>
                         <br>
-                        <p><strong>{{$item->nama_produk}}</strong></p>
-                        <p id="p"><strong>{{$item->harga_produk}}</strong></p>
+                        <p><strong>{{ $item->nama_produk }}</strong></p>
+                        <p id="p"><strong>{{ $item->harga_produk }}</strong></p>
                         <p id="p1"><strong><s>IDR 1.000,000</s></strong></p>
                     </div>
                 </div>

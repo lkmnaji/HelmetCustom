@@ -16,6 +16,16 @@
                 <br>
                 <h4><strong>Alamat customer</strong></h4>
                 <p>Jln Anggur nomer 1 kecamatan air mengalir, kelurahan kebon teh</p>
+                <br>
+                <span>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" class="btn btn-dark">Logout
+                    </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                </span>
             </div>
             <div class="col-lg-8">
                 <h3><strong>ORDER HISTORY</strong></h3>

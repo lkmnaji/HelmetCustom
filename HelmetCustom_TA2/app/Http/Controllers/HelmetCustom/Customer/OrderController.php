@@ -5,6 +5,7 @@ namespace App\Http\Controllers\HelmetCustom\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
+use App\Produk;
 use Session;
 
 class OrderController extends Controller
@@ -15,8 +16,12 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $id = $request->id;
+
+        dd($id);
+
         $data = Order::all();
         return view('HelmetCustom.content.Customer.Order.IndexOrder',compact('data'));
     }
@@ -50,7 +55,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $data = Produk::whereid($id)->first();
+        return view('HelmetCustom.content.Customer.Order.IndexOrder',compact('data'));
     }
 
     /**

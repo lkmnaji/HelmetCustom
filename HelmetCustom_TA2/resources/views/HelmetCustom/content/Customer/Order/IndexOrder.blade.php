@@ -8,13 +8,13 @@
     <div class="row">
         <div class="col-lg-6">
             <div data-aos="fade-up">
-                <a href=""><img src="{{asset('assets/img/kuning.jpg')}}"alt="" class="img-fluid"></a>
+                <a href=""><img src="{{ Storage::url('public/gallerys/') . $data->foto_produk }}" alt="" width="400" class="img-fluid"></a>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="order">
-                <h2>HELM CUSTOM [M30 KUNING HITAM HELM CUSTOM]</h2>
-                <p id="po"><strong>IDR 500,000</strong></p>
+            <h2>{{ $data->nama_produk }}</h2>
+                <p id="po"><strong>{{ $data->harga_produk }}</strong></p>
                 <p id="po1"><strong><s>IDR 1.000,000</s></strong></p>
                 <br>
                 <h4>Size</h4>
