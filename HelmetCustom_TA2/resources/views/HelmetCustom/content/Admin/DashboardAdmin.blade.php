@@ -1,5 +1,5 @@
 @extends('HelmetCustom.MasterAdmin')
-@section('title','Admin | Table Gallery')
+@section('title','Admin | Dashboard Admin')
 
 {{-- @section('admin','active') --}}
 

@@ -15,19 +15,15 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 Auth::routes();
 
-// Route::get('/',function(){
-//     return view('auth/login');
-// });
+Route::get('/',function(){
+    return view('auth/login');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('/')->group(function(){
-    Route::get('admin', function () {
-        return view('welcomeadmin');
-        })->name('welcome');
-    Route::get('customer', function (){
-        return view('welcomecustomer');
-        })->name('welcome');
+    Route::get('admin', 'HelmetCustom\Admin\LoginAdminController@LoginAdmin');
+    Route::get('customer', 'HelmetCustom\Customer\LoginCustomerController@LoginCustomer');
 });
 
 Route::get('/customer/home', 'Auth\CustomerLoginController@index')->middleware('auth:customer');
@@ -41,7 +37,7 @@ Route::get('/customer/logout', 'Auth\CustomerLoginController@logout')->name('cus
 // ADMIN DASBOARD
 Route::group(['middleware' => 'auth'], function(){
     Route::prefix('AdminHelmetCustom')->group(function(){
-        Route::get('/DashboardAdmin',function(){return view('HelmetCustom.content.Admin.DashboardAdmin');})->name('index.admin');
+        Route::get('/DashboardAdmin','HelmetCustom\Admin\HomeAdminController@homeadmin');
         Route::resource('warna','HelmetCustom\Admin\WarnaController');
         Route::resource('metodetransaksi','HelmetCustom\Admin\MetodeTransaksiController');
         Route::resource('produk','HelmetCustom\Admin\ProdukController');
