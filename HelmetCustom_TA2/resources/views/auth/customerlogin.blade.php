@@ -89,6 +89,11 @@
             <hr>
             <div class="row">
                 <div class="col-lg-6">
+                    @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        <span>{{ session()->get('success') }}</span>
+                    </div>
+                    @endif
                     <form action="{{ route('customer.login') }}" method="POST">
                         @csrf
                         <label for="username">Username</label>

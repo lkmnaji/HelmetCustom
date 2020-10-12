@@ -52,7 +52,7 @@ class CustomerLoginController extends Controller
             'password'  => 'required|string|min:6|confirmed'
         ]);
         \App\Customer::create($request->all());
-        return redirect()->route('customer.registerform')->with('success','Successfully register!');
+        return redirect()->route('customer.loginform')->with('success','Successfully register!');
     }
     public function logout(){
         Auth::logout();

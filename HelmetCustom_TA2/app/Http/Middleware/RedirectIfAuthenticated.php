@@ -32,12 +32,12 @@ class RedirectIfAuthenticated
         // }
         if ($guard == 'customer') {
             if (Auth::guard($guard)->check()){
-                return redirect('/CustomerHelmetCustom/HomePageCustomer');
+                return redirect('/helmetcustom/homehelmet');
             }
         }
         else {
             if (Auth::guard($guard)->check()) {
-                return redirect('/admin/dashboard');
+                return redirect('/adminhelmetcustom/dashboard');
             }
         }
 

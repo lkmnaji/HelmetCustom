@@ -131,7 +131,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a href="{{route('Order.index')}}" class="nav-link">
+                        <a href="{{route('order.index')}}" class="nav-link">
                                 <i class="fa fa-table"></i> &nbsp;
                                 <p>Order</p>
                             </a>

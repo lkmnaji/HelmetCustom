@@ -16,7 +16,7 @@
 <div class="content-wrapper">    
     <div class="container mt-3">
         <br>
-    <a href="{{url('/AdminHelmetCustom/DashboardAdmin')}}"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
+    <a href="{{url('/adminhelmetcustom/dashboard')}}"><button class="btn btn-primary">Kembali Ke Index Admin</button></a>
         <div class="row">
             <div class="col-12">
                 <div class="py-4">
