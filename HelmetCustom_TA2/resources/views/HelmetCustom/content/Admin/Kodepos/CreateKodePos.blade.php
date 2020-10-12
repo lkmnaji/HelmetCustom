@@ -1,6 +1,6 @@
-@extends('master')
+@extends('HelmetCustom.MasterAdmin')
 
-@section('content')
+@section('HelmetCustom.content.Admin')
 <div class="container mt-3">
         <h2>Upload Kode Pos</h2>
         <hr>

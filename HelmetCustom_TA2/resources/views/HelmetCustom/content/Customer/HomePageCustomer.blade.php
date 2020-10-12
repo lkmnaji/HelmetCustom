@@ -45,7 +45,7 @@
             @foreach ($data as $item)
                 <div class="col-lg-3">
                     <div data-aos="fade-up">
-                        <a href="{{ route('order.show',$item->id) }}"><img
+                        <a href="{{ route('order.show', $item->id) }}"><img
                                 src="{{ Storage::url('public/gallerys/') . $item->foto_produk }}" class="d-block w-100"
                                 alt="..."></a>
                         <br>

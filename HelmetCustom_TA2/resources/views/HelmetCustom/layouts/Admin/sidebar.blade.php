@@ -136,6 +136,12 @@
                                 <p>Order</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('footer')}}" class="nav-link">
+                                    <i class="fa fa-table"></i> &nbsp;
+                                    <p>Footer</p>
+                                </a>
+                            </li>
                     </ul>
                 </li>
                 {{-- Tutup Customer --}}

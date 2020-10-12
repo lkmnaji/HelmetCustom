@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\HelmetCustom\Customer;
+namespace App\Http\Controllers\HelmetCustom\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
-use App\Customer;
-use App\CustomerData;
-use App\Footer;
+use App\footer;
 
-class CustomerDataController extends Controller
+class FooterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +15,8 @@ class CustomerDataController extends Controller
      */
     public function index()
     {
-        // $customer_data = CustomerData::where(Auth::user()->email)->get();
-        $footer = Footer::all();
-        return view('HelmetCustom.content.Customer.CustomerData.IndexCustomerData',compact('footer'));
+        $data = footer::all();
+        return view('HelmetCustom.content.Admin.footer.index-footer',compact('data'));
     }
 
     /**
@@ -30,7 +26,7 @@ class CustomerDataController extends Controller
      */
     public function create()
     {
-        return view('HelmetCustom.content.Customer.CreateCustomer');
+        return view('HelmetCustom.content.Admin.footer.create-footer');
     }
 
     /**
@@ -41,9 +37,19 @@ class CustomerDataController extends Controller
      */
     public function store(Request $request)
     {
-        $validasi = $request->validate([
-            'nama_customer' => ''
+        $validate = $request->validate([
+            'about_us' => 'required',
+            'contact' => 'required',
+            'support' => 'required'
         ]);
+
+        $footer = new footer;
+        $footer->about_us = $validate ['about_us'];
+        $footer->contact = $validate ['contact'];
+        $footer->support = $validate ['support'];
+        $footer->save();
+
+        return redirect()->route('footer');
     }
 
     /**

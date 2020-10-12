@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use App\Footer;
 
 class CustomerLoginController extends Controller
 {
@@ -18,16 +19,19 @@ class CustomerLoginController extends Controller
     }
 
     public function index(){
-        return view('customer.content.home');
+        $footer = Footer::all();
+        return view('customer.content.home', compact('footer'));
     }
 
     public function showLoginForm()
     {
-        return view('auth.customerlogin');
+        $footer = Footer::all();
+        return view('auth.customerlogin', compact('footer'));
     }
 
     public function showRegisterForm(){
-        return view('auth.customerregister');
+        $footer = Footer::all();
+        return view('auth.customerregister', compact('footer'));
     }
 
     public function username()

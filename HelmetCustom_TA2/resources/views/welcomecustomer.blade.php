@@ -71,11 +71,9 @@
                     @auth
                         <a href="{{ route('homefrontend') }}">Home</a>
                     @else
-                        {{-- <a href="{{ route('login') }}"><button class="btn btn-dark">Login</button></a> --}}
                         <a href="{{ route('customer.loginform') }}"><button class="btn btn-secondary">Sign In</button></a>
 
                         @if (Route::has('register'))
-                            {{-- <a href="{{ route('register') }}">Register</a> --}}
                             <a href="{{ route('customer.registerform') }}"><button class="btn btn-secondary">Sign Up</button></a>
                         @endif
                     @endauth

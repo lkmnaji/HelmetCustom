@@ -15,9 +15,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 Auth::routes();
 
-Route::get('/',function(){
-    return view('auth/login');
-});
+// Route::get('/',function(){
+//     return view('auth/login');
+// });
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth'], function(){
         Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
         Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
         Route::resource('Order', 'HelmetCustom\Customer\OrderController');
+        Route::get('/footer-create','HelmetCustom\Admin\FooterController@create')->name('footer-create');
+        Route::post('/footer-store','HelmetCustom\Admin\FooterController@store')->name('footer-store');
+        Route::get('/footer','HelmetCustom\Admin\FooterController@index')->name('footer');
     });
 });
 
