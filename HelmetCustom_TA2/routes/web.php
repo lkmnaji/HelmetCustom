@@ -36,8 +36,8 @@ Route::get('/customer/logout', 'Auth\CustomerLoginController@logout')->name('cus
 
 // ADMIN DASBOARD
 Route::group(['middleware' => 'auth'], function(){
-    Route::prefix('AdminHelmetCustom')->group(function(){
-        Route::get('/DashboardAdmin','HelmetCustom\Admin\HomeAdminController@homeadmin');
+    Route::prefix('adminhelmetcustom')->group(function(){
+        Route::get('/dashboard','HelmetCustom\Admin\HomeAdminController@homeadmin');
         Route::resource('warna','HelmetCustom\Admin\WarnaController');
         Route::resource('metodetransaksi','HelmetCustom\Admin\MetodeTransaksiController');
         Route::resource('produk','HelmetCustom\Admin\ProdukController');
@@ -47,7 +47,6 @@ Route::group(['middleware' => 'auth'], function(){
         Route::resource('province', 'HelmetCustom\Admin\ProvinceController');
         Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
         Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
-        Route::resource('Order', 'HelmetCustom\Customer\OrderController');
         Route::get('/footer-create','HelmetCustom\Admin\FooterController@create')->name('footer-create');
         Route::post('/footer-store','HelmetCustom\Admin\FooterController@store')->name('footer-store');
         Route::get('/footer','HelmetCustom\Admin\FooterController@index')->name('footer');
