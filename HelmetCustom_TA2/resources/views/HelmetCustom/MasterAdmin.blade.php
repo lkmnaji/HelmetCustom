@@ -45,6 +45,8 @@
     @yield('HelmetCustom.content.Admin')
     
     @include('HelmetCustom.layouts.Admin.footer')
+
+    @include('sweetalert::alert')
     
 
     <!-- Control Sidebar -->

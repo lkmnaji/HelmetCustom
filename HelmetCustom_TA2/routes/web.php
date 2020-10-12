@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
         Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
         Route::resource('Order', 'HelmetCustom\Customer\OrderController');
+        Route::resource('carousel', 'HelmetCustom\Admin\CarouselController');
         Route::get('/footer-create','HelmetCustom\Admin\FooterController@create')->name('footer-create');
         Route::post('/footer-store','HelmetCustom\Admin\FooterController@store')->name('footer-store');
         Route::get('/footer','HelmetCustom\Admin\FooterController@index')->name('footer');

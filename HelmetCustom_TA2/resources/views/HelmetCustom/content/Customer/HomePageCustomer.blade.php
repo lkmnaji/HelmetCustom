@@ -9,21 +9,25 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
         </ol>
         <div class="carousel-inner">
+            @foreach ($carousel as $item)
             <div class="carousel-item active">
-                <img src="{{ asset('assets/img/bgHelmet.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ Storage::url('public/gallerys/') . $item->foto_carousel }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1>SELAMAT DATANG</h1>
-                    <h5>DI WEB SITE HELM COSTUM</h5>
+                    <h1>{{ $item->caption_satu }}</h1>
+                    <h5>{{ $item->caption_dua}}</h5>
                 </div>
             </div>
+            @endforeach
+            @foreach ($carousel2 as $item2)
             <div class="carousel-item">
-                <img src={{ asset('assets/img/couple-driving-motorcycle-young-preview.jpg') }} class="d-block w-100"
-                    alt="...">
+                <img src="{{ Storage::url('public/gallerys/') . $item2->foto_carousel }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1>SELAMAT DATANG</h1>
-                    <h5>DI WEB SITE HELM COSTUM</h5>
+                    <h1>{{ $item2->caption_satu }}</h1>
+                    <h5>{{ $item2->caption_dua}}</h5>
                 </div>
             </div>
+            @endforeach
+            
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

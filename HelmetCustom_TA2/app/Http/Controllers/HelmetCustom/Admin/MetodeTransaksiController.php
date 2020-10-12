@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\MetodeTransaksi;
 use Session;
+use Alert;
 
 class MetodeTransaksiController extends Controller
 {
@@ -45,10 +46,10 @@ class MetodeTransaksiController extends Controller
        $transaksi = MetodeTransaksi::create($validate);
        $transaksi->save();
 
-       if ($transaksi) {
-        Session::flash('sukses',"Data berhasil di Input");
+
+        Alert::success('Sukses', 'Data Berhasil Di Input!');
         return redirect()->route('metodetransaksi.index');
-        }
+    
 
     }
 
@@ -92,10 +93,9 @@ class MetodeTransaksiController extends Controller
 
         $metodetransaksi->update($validate);
 
-       if ($metodetransaksi) {
-        Session::flash('sukses',"Data berhasil di Edit");
+        Alert::success('Data Berhasil Di Edit!');
         return redirect()->route('metodetransaksi.index');
-        }
+        
     }
 
     /**
@@ -108,9 +108,7 @@ class MetodeTransaksiController extends Controller
     {
         $metodetransaksi->delete();
 
-        if ($metodetransaksi) {
-            Session::flash('sukses',"Data berhasil di Hapus");
+            Alert::success('Data Berhasil Di Delete!');
             return redirect()->route('metodetransaksi.index');
-        }
     }
 }

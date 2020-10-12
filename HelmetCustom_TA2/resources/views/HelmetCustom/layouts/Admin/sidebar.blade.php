@@ -137,11 +137,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('carousel.index')}}" class="nav-link">
+                                    <i class="fa fa-table"></i> &nbsp;
+                                    <p>Carousel</p>
+                                </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('footer')}}" class="nav-link">
                                     <i class="fa fa-table"></i> &nbsp;
                                     <p>Footer</p>
                                 </a>
-                            </li>
+                        </li>
                     </ul>
                 </li>
                 {{-- Tutup Customer --}}

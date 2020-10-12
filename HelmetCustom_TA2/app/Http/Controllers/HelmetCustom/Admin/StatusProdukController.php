@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\StatusProduk;
 use Session;
+use Alert;
 
 class StatusProdukController extends Controller
 {
@@ -44,6 +45,7 @@ class StatusProdukController extends Controller
         $status = StatusProduk::create($validate);
         $status->save();
 
+        Alert::success('Sukses', 'Data Berhasil Di Input!');
         return redirect()->route('status.index');
     }
 
@@ -82,6 +84,8 @@ class StatusProdukController extends Controller
             'status_produk' => 'required|min:2',
         ]);
         $status->update($validate);
+
+        Alert::success('Data Berhasil Di Edit!');
         return redirect()->route('status.index');
     }
 
@@ -96,9 +100,8 @@ class StatusProdukController extends Controller
         $status = StatusProduk::find($id);
         $status->delete();
 
-        if($status){
-            Session::flash('sukses', 'SUKSES DELETE DATA');
-            return redirect()->route('status.index');
-        }
+        Alert::success('Data Berhasil Di Delete!');
+        return redirect()->route('status.index');
+        
     }
 }

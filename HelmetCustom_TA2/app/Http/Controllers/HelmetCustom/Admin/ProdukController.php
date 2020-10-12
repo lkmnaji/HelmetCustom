@@ -9,6 +9,7 @@ use App\Warna;
 use App\Produk;
 use App\StatusProduk;
 use Session;
+use Alert;
 
 class ProdukController extends Controller
 {
@@ -68,10 +69,9 @@ class ProdukController extends Controller
         ]);
 
 
-        if ($produk) {
-            Session::flash('sukses',"Data berhasil di Input");
+            Alert::success('Sukses', 'Data Berhasil Di Input!');
             return redirect()->route('produk.index');
-        }
+        
 
     }
 
@@ -145,10 +145,10 @@ class ProdukController extends Controller
                 'foto_produk' => $image->hashName()
             ]);
         }
-        if($produk){
-            Session::flash('sukses',"Data berhasil di Edit");
+
+            Alert::success('Data Berhasil Di Edit!');
             return redirect()->route('produk.index');
-        }
+
     }
 
     /**
@@ -161,9 +161,8 @@ class ProdukController extends Controller
     {
         $produk->delete();
 
-        if($produk){
-            Session::flash('sukses',"Data berhasil di hapus");
+            Alert::success('Data Berhasil Di Delete!');
             return redirect()->route('produk.index');
-        }
+
     }
 }

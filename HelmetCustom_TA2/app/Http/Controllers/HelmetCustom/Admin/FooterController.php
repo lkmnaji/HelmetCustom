@@ -5,6 +5,7 @@ namespace App\Http\Controllers\HelmetCustom\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\footer;
+use Alert;
 
 class FooterController extends Controller
 {
@@ -49,6 +50,7 @@ class FooterController extends Controller
         $footer->support = $validate ['support'];
         $footer->save();
 
+        Alert::success('Sukses', 'Data Berhasil Di Input!');
         return redirect()->route('footer');
     }
 

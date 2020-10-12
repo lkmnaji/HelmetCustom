@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Warna;
 use Session;
+use Alert;
 
 class WarnaController extends Controller
 {
@@ -46,10 +47,9 @@ class WarnaController extends Controller
         $warna->warna = $validate['warna'];
         $warna->save();
 
-        if ($warna) {
-            Session::flash('sukses',"Data berhasil di Input");
-            return redirect()->route('warna.index');
-        }
+        Alert::success('Sukses', 'Data Berhasil Di Input!');
+        return redirect()->route('warna.index');
+        
     }
 
     /**
@@ -89,10 +89,8 @@ class WarnaController extends Controller
 
         $warna->update($validate);
 
-        if ($warna) {
-            Session::flash('sukses',"Data berhasil di Edit");
-            return redirect()->route('warna.index');
-        }
+        Alert::success('Data Berhasil Di Edit!');
+        return redirect()->route('warna.index');
     }
 
     /**
@@ -105,9 +103,8 @@ class WarnaController extends Controller
     {
         $warna->delete();
 
-        if ($warna) {
-            Session::flash('sukses',"Data berhasil di Hapus");
-            return redirect()->route('warna.index');
-        }
+
+        Alert::success('Data Berhasil Di Delete!');
+        return redirect()->route('warna.index');
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\HelmetCustom\Admin;
+namespace App\Http\Controllers\HelmetCustom\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\KodePos;
+use App\Carousel;
 use Alert;
 
-class KodePosController extends Controller
+class CarouselController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class KodePosController extends Controller
      */
     public function index()
     {
-        $kodepos = KodePos::all();
-        return view('HelmetCustom.content.Admin.Kodepos.IndexKodePos',compact('kodepos'));
+        $data = Carousel::all();
+        return view('HelmetCustom.content.Admin.Carousel.index-carousel',compact('data'));
     }
 
     /**
@@ -27,7 +27,7 @@ class KodePosController extends Controller
      */
     public function create()
     {
-        return view('HelmetCustom.content.Admin.Kodepos.IndexKodePos');
+        return view('HelmetCustom.content.Admin.Carousel.create-carousel');
     }
 
     /**
@@ -38,16 +38,23 @@ class KodePosController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request->validate([
-            'kode_pos' => 'required'
+        $this->validate($request, [
+            'foto_carousel' => 'required|image|mimes:png,jpg,jpeg',
+            'caption_satu' => 'required',
+            'caption_dua' => 'required'
         ]);
-        
-        $kodepos = new KodePos;
-        $kodepos->kode_pos = $validate['kode_pos'];
-        $kodepos->save();
-        
+
+        $image = $request->file('foto_carousel');
+        $image->storeAs('public/gallerys',$image->hashName());
+
+        $carousel = Carousel::create([
+            'foto_carousel' => $image->hashName(),
+            'caption_satu' => $request->caption_satu,
+            'caption_dua' => $request->caption_dua,
+        ]);
+
         Alert::success('Sukses', 'Data Berhasil Di Input!');
-        return redirect()->route('kodepos.index');
+        return redirect()->route('carousel.index');
     }
 
     /**
@@ -90,11 +97,11 @@ class KodePosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KodePos $kodepos)
+    public function destroy(Carousel $carousel)
     {
-        $kodepos->delete();
+        $carousel->delete();
 
-        Alert::success('Sukses', 'Data Berhasil Di Input!');
-        return redirect()->route('kodepos.index');
+        Alert::success('Data Berhasil Di Delete!');
+        return redirect()->route('carousel.index');
     }
 }
