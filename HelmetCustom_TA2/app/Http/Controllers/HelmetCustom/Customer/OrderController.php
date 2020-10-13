@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Produk;
+use App\Footer;
 use Session;
 
 class OrderController extends Controller
@@ -16,12 +17,8 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $id = $request->id;
-
-        dd($id);
-
         $data = Order::all();
         return view('HelmetCustom.content.Customer.Order.IndexOrder',compact('data'));
     }
@@ -57,7 +54,8 @@ class OrderController extends Controller
     {
 
         $data = Produk::whereid($id)->first();
-        return view('HelmetCustom.content.Customer.Order.IndexOrder',compact('data'));
+        $footer = Footer::all();
+        return view('HelmetCustom.content.Customer.Order.IndexOrder',compact('data','footer'));
     }
 
     /**
