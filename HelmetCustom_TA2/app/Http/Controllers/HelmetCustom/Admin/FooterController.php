@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\footer;
 use Alert;
 
+use function Ramsey\Uuid\v1;
+
 class FooterController extends Controller
 {
     /**
@@ -73,7 +75,7 @@ class FooterController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -85,7 +87,7 @@ class FooterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
     }
 
     /**
@@ -94,8 +96,11 @@ class FooterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(footer $footer)
     {
-        //
+        $footer->delete();
+
+        Alert::success('Data Berhasil Di Delete!');
+        return redirect()->route('footer');
     }
 }

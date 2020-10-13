@@ -54,10 +54,8 @@
                                 <td>{{ $dp->contact }}</td>
                                 <td>{{ $dp->support }}</td>
                                 <td>
-                                    {{-- {{route('produk.edit', $dp->id)}} --}}
-                                    <a href="" class="btn btn-success">EDIT</a>
-                                    {{-- "{{route('produk.destroy', $dp->id)}}" --}}
-                                    <form action= method="post" class="d-inline">
+                                <a href="#" class="btn btn-success">EDIT</a>
+                                    <form action="{{route('footer-delete', $dp->id)}}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger" onclick="return confirm('ADA YAKIN UNTUK MENGHAPUS?')">HAPUS</button>

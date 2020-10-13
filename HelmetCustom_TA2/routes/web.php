@@ -46,11 +46,13 @@ Route::group(['middleware' => 'auth'], function(){
         Route::resource('kodepos', 'HelmetCustom\Admin\KodePosController');
         Route::resource('province', 'HelmetCustom\Admin\ProvinceController');
         Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
-        Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
+        // Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
         Route::resource('carousel', 'HelmetCustom\Admin\CarouselController');
         Route::get('/footer-create','HelmetCustom\Admin\FooterController@create')->name('footer-create');
         Route::post('/footer-store','HelmetCustom\Admin\FooterController@store')->name('footer-store');
         Route::get('/footer','HelmetCustom\Admin\FooterController@index')->name('footer');
+        Route::delete('/footer-delete/{footer}','HelmetCustom\Admin\FooterController@destroy')->name('footer-delete');
+    
     });
 });
 
@@ -58,6 +60,6 @@ Route::group(['middleware' => 'auth'], function(){
 Route::prefix('helmetcustom')->group(function(){    
     Route::get('/homehelmet','HelmetCustom\Customer\homefrontendController@homeFrontend')->name('homefrontend');
     Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
-    Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
+    // Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
     Route::resource('order', 'HelmetCustom\Customer\OrderController');
 });

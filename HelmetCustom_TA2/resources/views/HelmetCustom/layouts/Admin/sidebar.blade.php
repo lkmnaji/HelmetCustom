@@ -125,7 +125,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a href="{{route('invoice.index')}}" class="nav-link">
+                        <a href="" class="nav-link">
                                 <i class="fa fa-table"></i> &nbsp;
                                 <p>Invoice</p>
                             </a>
