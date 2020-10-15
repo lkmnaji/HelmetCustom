@@ -1,5 +1,8 @@
 @extends('HelmetCustom.MasterCustomer')
 
+@section('title','Table Keranjang')
+
+
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/css/cart.css')}}">
 @endsection
@@ -29,7 +32,7 @@
             <div class="cart">
                 <div class="row">
                     <div class="col-lg-3">
-                        <img src="{{ $cart->produk->foto_produk}}" alt="foto_produk" width="180px">
+                        <img src= "{{Storage::url('public/gallerys/').$cart->produk->foto_produk}}" alt="foto_produk" width="180px">
                     </div>
                     <div class="col-lg-9">
                         <div class="top">
