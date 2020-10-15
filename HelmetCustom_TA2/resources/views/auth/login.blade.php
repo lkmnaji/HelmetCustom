@@ -67,6 +67,7 @@
                                     </div>
                                 </div>
                             </form>
+                            <a href="{{route('customer.login')}}">coba</a>
                         </div>
                     </div>
                 </div>

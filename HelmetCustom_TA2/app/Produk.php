@@ -17,4 +17,7 @@ class Produk extends Model
     public function ProdukOrder(){
         return $this->hasMany(Order::class, 'produk_id','id');
     }
+    public function cart(){
+        return $this->hasMany(Cart::class, 'produk_id','id');
+    }
 }

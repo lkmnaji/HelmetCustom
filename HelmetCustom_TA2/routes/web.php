@@ -35,7 +35,7 @@ Route::get('/customer/logout', 'Auth\CustomerLoginController@logout')->name('cus
 
 
 // ADMIN DASBOARD
-Route::group(['middleware' => 'auth'], function(){
+// Route::group(['middleware' => 'auth'], function(){
     Route::prefix('adminhelmetcustom')->group(function(){
         Route::get('/dashboard','HelmetCustom\Admin\HomeAdminController@homeadmin');
         Route::resource('warna','HelmetCustom\Admin\WarnaController');
@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::delete('/footer-delete/{footer}','HelmetCustom\Admin\FooterController@destroy')->name('footer-delete');
     
     });
-});
+// });
 
 // ADMIN CUSTOMER
 Route::prefix('helmetcustom')->group(function(){    
@@ -62,4 +62,7 @@ Route::prefix('helmetcustom')->group(function(){
     Route::resource('customer', 'HelmetCustom\Customer\CustomerDataController');
     // Route::resource('invoice', 'HelmetCustom\Customer\InvoiceContoller');
     Route::resource('order', 'HelmetCustom\Customer\OrderController');
+    Route::get('/cart','CartController@index')->name('cart');
+    Route::post('/cart/store/{id}','CartController@store')->name('store');
+    Route::patch('/cart/{id}','CartController@update')->name('update');
 });

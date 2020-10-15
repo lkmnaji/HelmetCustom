@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/login.css')}}"> --}}
 
     {{-- Js --}}
-    <script src="{{ asset('/assets/js/helm.js') }}"></script>
+    {{-- <script src="{{ asset('/assets/js/helm.js') }}"></script> --}}
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -43,6 +43,10 @@
     @yield('auth')
 
     @yield('HelmetCustom.content.Customer')
+
+    @yield('css')
+
+    @yield('js')
     
     @include('HelmetCustom.layouts.Customer.footer')
 

@@ -28,7 +28,9 @@
           <div class="card bg-dark text-white">
             <img src="{{asset('assets/img/bgadmin1.jpeg')}}" alt="background foto" id="bgadmin1">
             <div class="card-img-overlay">
-              <h1 class="card-title text-center" id="h1bgadmin1">Selamat Datang <br>{{ Auth::user()->name }}</h1>
+              <h1 class="card-title text-center" id="h1bgadmin1">Selamat Datang <br>
+                {{-- {{ Auth::user()->name }} --}}
+              </h1>
             </div>
           </div>
         </div>
